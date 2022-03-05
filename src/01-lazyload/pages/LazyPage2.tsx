@@ -5,4 +5,4 @@ const LazyPage2 = () => {
   )
 }
 
-export default LazyPage2;
+export  default   LazyPage2;
