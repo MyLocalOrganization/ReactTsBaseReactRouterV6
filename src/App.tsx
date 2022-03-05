@@ -1,9 +1,9 @@
-import { Navigation } from "./route/Navigation";
+import { Navigation } from "./01-lazyload/route/Navigation";
 
 function App() {
   return (
     <>
-    <Navigation />
+      <Navigation />
     </>
   );
 }
