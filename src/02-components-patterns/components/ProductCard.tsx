@@ -1,7 +1,7 @@
-import { createContext } from 'react';
+import { createContext, CSSProperties, ReactElement } from 'react';
 import styles from '../styles/styles.module.css';
 import { UseProduct } from '../hooks/usePeoduct';
-import { ProductContextProps, ProductCarsProps } from '../interfaces/interfaces';
+import { ProductContextProps, Product } from '../interfaces/interfaces';
 
 
 
@@ -11,7 +11,14 @@ export const ProductContext = createContext({} as ProductContextProps);
 //podria desestructurar el providers
 //const { Provider } = ProductContext;
 
-export const ProductCard = ({ children, product }: ProductCarsProps) => {
+export interface IProps {
+    product: Product;
+    children?: ReactElement | ReactElement[];
+    className?: string;
+    style?: CSSProperties
+}
+
+export const ProductCard = ({ children, product, className, style }: IProps) => {
     //custom hook de funciones 
     const { onDecrement, counter } = UseProduct();
 
@@ -21,10 +28,11 @@ export const ProductCard = ({ children, product }: ProductCarsProps) => {
             counter,
             product
         }}>
-            <div className={styles.productCard}>
+            <div
+                style={style}
+                className={`${styles.productCard} ${className}`}>
                 {children}
             </div>
         </ProductContext.Provider>
-
     )
 }

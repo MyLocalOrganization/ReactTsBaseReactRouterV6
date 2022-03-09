@@ -3,7 +3,12 @@ import { ProductContext } from "./ProductCard";
 import styles from '../styles/styles.module.css';
 import noImage from '../assets/no-image.jpg';
 
-export const ProductImage = ({ img = '' }) => {
+export interface IProps {
+    img?: string;
+    className?: string;
+}
+
+export const ProductImage = ({ img = '', className }: IProps) => {
     //acceso al contexto del padre ProductContext
     const { product } = useContext(ProductContext);
     let imgToShow: string;
@@ -17,6 +22,10 @@ export const ProductImage = ({ img = '' }) => {
     }
 
     return (
-        <img className={styles.productImg} src={imgToShow} alt="Product Image" />
+        <img
+            className={`${styles.productImg} ${className}`}
+            src={imgToShow}
+            alt="Product Image"
+        />
     )
 }
