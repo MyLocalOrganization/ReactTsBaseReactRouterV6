@@ -1,0 +1,13 @@
+version: '3'
+services:
+  client:
+    #stdin_open: true
+    #tty: true
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./
+    volumes:
+      - /app/node_modules # dentro del contenedor no remplace su contenido nunca
+      - ./:/app # toma todo lo que esta dentro del directorio de trabajo actual : y lo envia al directorio de trabajo del contenedor
+    ports:
+      - '3000:3000'

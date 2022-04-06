@@ -20,7 +20,7 @@ export const FormikAbstraction = () => {
 
   return (
     <div>
-      <h1>Formik Abstraction</h1>
+      <h1>Formik Abstraction desde docker compose</h1>
       <Formik
         initialValues={{
           firstName: '',

@@ -1,0 +1,13 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+# directorio actual directorio destino
+COPY ./package.json ./
+
+# Install dependencias
+RUN npm install
+
+COPY . .
+
+CMD ["npm","start"]
